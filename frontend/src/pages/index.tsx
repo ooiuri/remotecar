@@ -25,7 +25,7 @@ const Home: NextPage = () => {
   const leftButton = useRef<HTMLButtonElement>(null);
   const rightButton = useRef<HTMLButtonElement>(null);
 
-  const baseVelocity = 220;
+  const [baseVelocity, setBaseVelocity] = useState(220);
 
   function handleKeyDown(event: KeyboardEvent<Element>) {
     if (event.key === "ArrowUp") {
@@ -157,10 +157,19 @@ const Home: NextPage = () => {
               </button>
             </div>
             <InputComponent />
+            {/* <h3>Mudar Velocidade: {baseVelocity}</h3>
+            <input
+              type="range"
+              min="0"
+              max="255"
+              onChange={(e) => {
+                setBaseVelocity(Number(e.target.value));
+              }}
+            /> */}
           </div>
           <div>
             <img
-              src="http://192.168.100.111:8090/?action=stream"
+              src="http://192.168.100.148:8090/?action=stream"
               width={480}
               height={"auto"}
             />

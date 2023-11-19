@@ -9,12 +9,13 @@ services:
       - 3000:3000
     volumes:
       - ./frontend/src:/app/src
-
+ 
   mjpg-streamer:
-    restart: always
-    image: kvaps/mjpg-streamer
+    container_name: front
+    build:
+      context: ./frontend
     devices:
       - /dev/video1
     ports:
       - 8090:8090
-    command: -i "/usr/lib64/input_uvc.so -y -d /dev/video1 -r 320x240 -f 10" -o "/usr/lib64/output_http.so -p 8090 -w /usr/share/mjpeg-streamer/www/"
+    # command: -i "/usr/lib64/input_uvc.so -y -d /dev/video1 -r 320x240 -f 10" -o "/usr/lib64/output_http.so -p 8090 -w /usr/share/mjpeg-streamer/www/"
