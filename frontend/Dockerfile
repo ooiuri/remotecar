@@ -1,5 +1,5 @@
 # build step
-FROM node:20-alpine3.17 as build
+FROM node:18-alpine as build
 
 ENV NODE_OPTIONS --openssl-legacy-provider
 
