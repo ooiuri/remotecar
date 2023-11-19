@@ -11,9 +11,9 @@ services:
       - ./frontend/src:/app/src
  
   mjpg-streamer:
-    container_name: front
+    container_name: streamer
     build:
-      context: ./frontend
+      context: ./streamer
     devices:
       - /dev/video1
     ports:
